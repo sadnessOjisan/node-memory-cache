@@ -1,0 +1,19 @@
+{
+  "name": "memory-cache",
+  "version": "0.0.0-rc1",
+  "description": "Simple memory cache",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sadnessOjisan/node-memory-cache.git"
+  },
+  "author": "@sadnessOJisan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sadnessOjisan/node-memory-cache/issues"
+  },
+  "homepage": "https://github.com/sadnessOjisan/node-memory-cache#readme"
+}
