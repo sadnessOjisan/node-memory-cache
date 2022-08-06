@@ -7,7 +7,7 @@ class Memory {
   private cache: Record<string, Cache> = {};
   public put(key: string, value: unknown, time: number) {
     const timeout = setTimeout(() => {
-      // TODO: delete cache
+      this.deleteInternal(key);
     }, time);
     this.cache[key] = {
       value,
@@ -21,14 +21,34 @@ class Memory {
     const cached = this.cache[key];
     if (!cached) return null;
     if (this.isExpire(cached)) {
-      // TODO: delete cache
+      this.deleteInternal(key);
       return null;
     }
     return cached;
   }
 
+  public del(key: string) {
+    const cache = this.cache[key];
+    let canDelete;
+    if (cache) {
+      if (!isNaN(cache.expire) && this.isExpire(cache)) {
+        canDelete = false;
+      }
+    } else {
+      canDelete = false;
+    }
+    if (canDelete) {
+      this.deleteInternal(key);
+    }
+    return canDelete;
+  }
+
+  private deleteInternal(key: string) {
+    delete this.cache[key];
+  }
+
   private isExpire(cached: Cache): boolean {
-    return true;
+    return cached.expire < Date.now();
   }
 }
 
