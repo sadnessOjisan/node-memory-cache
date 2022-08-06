@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sadnessOjisan/node-memory-cache/issues"
   },
-  "homepage": "https://github.com/sadnessOjisan/node-memory-cache#readme"
+  "homepage": "https://github.com/sadnessOjisan/node-memory-cache#readme",
+  "devDependencies": {
+    "typescript": "^4.7.4"
+  }
 }
